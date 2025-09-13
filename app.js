@@ -4,7 +4,7 @@ const authMiddleWare = require("./authMiddleWare/authMiddleWare")
 const cors = require("cors")
 
 const app = express();
-let port = 5000
+let port = process.env.PORT
 // user route middleware
 const userRoute= require("./routes/userRoute")
 const questionRoter = require("./routes/questionRouter")
@@ -29,7 +29,7 @@ async function bombo (){
    const result = await dbconnection.execute("select 'test' ")
     await app.listen(port)
         console.log("database connected successfully")
-        console.log("listening to port "+port)
+        console.log("listening to port "+ port)
   //  console.log(result)
 } catch (error) {
     console.log(error)
